@@ -1,0 +1,5 @@
+[user]
+	name = Miika Hänninen
+	email = miika.hanninen@gmail.com
+[core]
+	excludesfile = ~/.gitignore_global
