@@ -5,7 +5,7 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*",
          lowerOnStart = True,
          commands = [ Run Cpu [ "-L","3","50","--normal","green","--high","red"] 10,
                       Run Memory [ "-t","Mem: <usedratio>%"] 10,
-                      Run Date "%a %m.%d (viikko %V) %k:%M" "date" 10,
+                      Run Date "%a %d.%m (vk %V) %k:%M" "date" 10,
                       Run StdinReader,
                       Run Battery [ "-t", "<acstatus> <left>% (<timeleft>)" ] 600
                     ],
