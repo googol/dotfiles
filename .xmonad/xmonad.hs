@@ -25,4 +25,7 @@ main = do
                      },
            modMask = mod4Mask
            } `additionalKeys`
-           [ ((mod4Mask, xK_l), spawn "gnome-screensaver-command -l") ]
+           [ ((mod4Mask, xK_l), spawn "gnome-screensaver-command -l"),
+             ((mod4Mask, xK_s), sendMessage Shrink),
+             ((mod4Mask, xK_e), sendMessage Expand)
+           ]
