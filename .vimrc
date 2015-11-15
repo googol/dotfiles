@@ -64,3 +64,4 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 nnoremap <leader>p :CtrlP<cr>
+nnoremap <leader>b :CtrlPBuffer<cr>
