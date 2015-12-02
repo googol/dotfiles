@@ -13,6 +13,7 @@ main = do
     spawn "gnome-power-manager"
     spawn "gpg-agent --enable-ssh-support --daemon"
     spawn "unclutter -display :0.0 -idle 1 -root -notclass google-chrome"
+    spawn "megasync"
     xmproc <- spawnPipe "xmobar"
     xmonad $ defaultConfig {
            manageHook = composeAll [ manageDocks,
