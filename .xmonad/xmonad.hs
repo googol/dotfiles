@@ -11,7 +11,7 @@ main = do
     spawn "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --transparent true --tint 0x191970 --height 15"
     spawn "nm-applet --sm-disable"
     spawn "gnome-power-manager"
-    spawn "gpg-agent --enable-ssh-support --daemon"
+    spawn "gpg-agent --enable-ssh-support --daemon --write-env-file /home/miika/.gpg-agent-info"
     spawn "unclutter -display :0.0 -idle 1 -root -notclass google-chrome"
     spawn "megasync"
     spawn "pasystray"
