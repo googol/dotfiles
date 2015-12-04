@@ -15,6 +15,7 @@ main = do
     spawn "unclutter -display :0.0 -idle 1 -root -notclass google-chrome"
     spawn "megasync"
     spawn "pasystray"
+    spawn "xflux -l 60.198057 -g 24.951908 -nofork"
     xmproc <- spawnPipe "xmobar"
     xmonad $ defaultConfig {
            manageHook = composeAll [ manageDocks,
