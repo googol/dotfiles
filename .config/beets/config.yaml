@@ -1,0 +1,30 @@
+directory: /media/music/music
+library: /media/music/beets/library.blb
+asciify_paths: no
+art_filename: cover
+per_disc_numbering: yes
+va_name: Various Artists
+
+import:
+    copy: yes
+    write: yes
+    move: no
+    timid: yes
+    log: yes
+    detail: yes
+
+ui:
+    color: yes
+
+paths:
+    default: $albumartist/$album%aunique{}/$disk-$track $title
+    singleton: Non-Album/$artist/$title
+    comp: Compilations/$album%aunique{}/$disk-$track $artist $title
+
+plugins: fetchart embedart ftintitle bpd
+fetchart:
+    auto: yes
+embedart:
+    auto: yes
+ftintitle:
+    auto: yes
