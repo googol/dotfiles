@@ -1,0 +1,4 @@
+--file /home/miika/ledger/commodities
+--file /home/miika/ledger/accounts
+--file /home/miika/ledger/ledger
+--pedantic
