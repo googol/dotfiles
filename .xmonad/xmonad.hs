@@ -31,5 +31,7 @@ main = do
            } `additionalKeysP`
            [ ("M4-l", spawn "gnome-screensaver-command -l"),
              ("M4-s", sendMessage Shrink),
-             ("M4-e", sendMessage Expand)
+             ("M4-e", sendMessage Expand),
+             ("<XF86MonBrightnessUp>", spawn "xbacklight +10"),
+             ("<XF86MonBrightnessDown>", spawn "xbacklight -10")
            ]
