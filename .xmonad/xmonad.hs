@@ -4,7 +4,7 @@ import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.DynamicLog
 import XMonad.Layout.NoBorders
 import XMonad.Util.Run(spawnPipe)
-import XMonad.Util.EZConfig(additionalKeys)
+import XMonad.Util.EZConfig(additionalKeysP)
 import System.IO
 
 main = do
@@ -28,8 +28,8 @@ main = do
                      ppTitle = xmobarColor "green" "" . shorten 100
                      },
            modMask = mod4Mask
-           } `additionalKeys`
-           [ ((mod4Mask, xK_l), spawn "gnome-screensaver-command -l"),
-             ((mod4Mask, xK_s), sendMessage Shrink),
-             ((mod4Mask, xK_e), sendMessage Expand)
+           } `additionalKeysP`
+           [ ("M4-l", spawn "gnome-screensaver-command -l"),
+             ("M4-s", sendMessage Shrink),
+             ("M4-e", sendMessage Expand)
            ]
