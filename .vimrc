@@ -15,6 +15,8 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
 Plugin 'othree/html5.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'Lokaltog/vim-distinguished'
+Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()            " required
 
@@ -67,3 +69,6 @@ nnoremap <leader>p :CtrlP<cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
 
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+set background=dark
+colorscheme solarized
