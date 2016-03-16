@@ -33,6 +33,7 @@ main = do
     spawn "megasync"
     spawn "pasystray"
     spawn "xflux -l 60.198057 -g 24.951908 -nofork"
+    spawn "beet web"
     xmproc <- spawnPipe "xmobar"
     xmonad $ defaultConfig {
            workspaces = myWorkspaces,
