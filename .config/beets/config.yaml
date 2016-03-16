@@ -9,22 +9,26 @@ import:
     copy: yes
     write: yes
     move: no
+    log: /media/music/beets/import.log
     timid: yes
-    log: yes
     detail: yes
 
 ui:
     color: yes
 
 paths:
-    default: $albumartist/$album%aunique{}/$disk-$track $title
+    default: $albumartist/$album%aunique{}/$disc-$track $title
     singleton: Non-Album/$artist/$title
-    comp: Compilations/$album%aunique{}/$disk-$track $artist $title
+    comp: Compilations/$album%aunique{}/$disc-$track $artist $title
 
-plugins: fetchart embedart ftintitle bpd
+plugins: fetchart embedart ftintitle replaygain web
 fetchart:
     auto: yes
 embedart:
     auto: yes
 ftintitle:
     auto: yes
+replaygain:
+    backend: gstreamer
+web:
+    host: 0.0.0.0
