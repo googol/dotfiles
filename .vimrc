@@ -17,6 +17,9 @@ Plugin 'othree/html5.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Lokaltog/vim-distinguished'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Quramy/tsuquyomi'
+Plugin 'leafgarland/typescript-vim'
 
 call vundle#end()            " required
 
