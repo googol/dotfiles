@@ -24,6 +24,7 @@ Plugin 'leafgarland/typescript-vim'
 call vundle#end()            " required
 
 filetype plugin indent on    " required
+syntax on
 
 set tabstop=4
 set shiftwidth=4
