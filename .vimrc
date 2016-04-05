@@ -47,8 +47,6 @@ set undofile
 
 let mapleader=","
 
-nnoremap / /\v
-vnoremap / /\v
 set ignorecase
 set smartcase
 set gdefault
