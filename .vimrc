@@ -69,6 +69,10 @@ nnoremap <C-l> <C-w>l
 
 nnoremap <leader>p :CtrlP<cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
+nnoremap <leader>l :lopen<cr>
+nnoremap <leader>L :lclose<cr>
+nnoremap <leader>c :copen<cr>
+nnoremap <leader>C :cclose<cr>
 
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
