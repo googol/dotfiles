@@ -22,3 +22,9 @@
 	ft=fetch
 	rb=rebase
 	g=grep -i -n
+[diff]
+	tool = icdiff
+[difftool "icdiff"]
+	cmd = icdiff $LOCAL $REMOTE
+[difftool]
+	prompt = false
