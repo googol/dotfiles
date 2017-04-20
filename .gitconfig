@@ -5,3 +5,20 @@
 	excludesfile = ~/.gitignore_global
 [push]
 	default = simple
+[alias]
+	s=status
+	ps=push
+	pl=pull
+	b=branch
+	co=checkout
+	ci=commit
+	d=diff
+	dd=diff --cached
+	dt=difftool
+	ddt=difftool --cached
+	l=log
+	a=add
+	ll=log --oneline --graph --decorate --all
+	ft=fetch
+	rb=rebase
+	g=grep -i -n
