@@ -1,6 +1,6 @@
 [user]
 	name = Miika Hänninen
-	email = miika.hanninen@gmail.com
+	email = miika.hanninen@reaktor.com
 [core]
 	excludesfile = ~/.gitignore_global
 [push]
