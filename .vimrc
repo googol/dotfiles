@@ -77,6 +77,10 @@ nnoremap <leader>L :lclose<cr>
 nnoremap <leader>c :copen<cr>
 nnoremap <leader>C :cclose<cr>
 
+autocmd FileType typescript nnoremap <leader>r :TsuReferences<cr>
+autocmd FileType typescript nnoremap <leader>d :TsuDefinition<cr>
+autocmd FileType typescript nnoremap <leader>t : <C-u>echo tsuquyomi#hint()<CR>
+
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 set background=dark
@@ -86,9 +90,13 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+let g:tsuquyomi_disable_quickfix = 1
+
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exec = './node_modules/.bin/eslint'
+let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
+let g:syntastic_typescript_tslint_exec = './node_modules/.bin/tslint --project'
