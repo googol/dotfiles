@@ -7,7 +7,13 @@ Config { font = "xft:Fira Code:size=5",
                       Run Memory [ "-t","Mem: <usedratio>%"] 10,
                       Run Date "%a %d.%m (vk %V) %k:%M" "date" 10,
                       Run StdinReader,
-                      Run Battery [ "-t", "<acstatus> <left>% (<timeleft>)" ] 600
+                      Run Battery [ "--template", "<acstatus> <left>% (<timeleft>)"
+                                  , "--Low", "10"
+                                  , "--High", "80"
+                                  , "--low", "darkred"
+                                  , "--normal", "darkorange"
+                                  , "--high", "darkgreen"
+                                  ] 600
                     ],
          sepChar = "%",
          alignSep = "}{",
