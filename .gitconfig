@@ -1,30 +1,44 @@
 [user]
-	name = Miika Hänninen
-	email = miika.hanninen@reaktor.com
+    name = Miika Hänninen
+    email = miika.hanninen@reaktor.com
+    signingkey = 7C727521C33A1E6E547F006B0ED89E238E72BE0A
 [core]
-	excludesfile = ~/.gitignore_global
+    excludesfile = ~/.gitignore_global
 [push]
-	default = simple
+    default = simple
 [alias]
-	s=status
-	ps=push
-	pl=pull
-	b=branch
-	co=checkout
-	ci=commit
-	d=diff
-	dd=diff --cached
-	dt=difftool
-	ddt=difftool --cached
-	l=log
-	a=add
-	ll=log --oneline --graph --decorate --all
-	ft=fetch
-	rb=rebase
-	g=grep -i -n
+    s=status
+    statsu=status
+    stauts=status
+    ps=push
+    pl=pull
+    b=branch
+    co=checkout
+    ci=commit
+    d=diff
+    dd=diff --cached
+    dt=difftool
+    ddt=difftool --cached
+    l=log
+    a=add
+    ll=log --oneline --graph --decorate --all
+    ft=fetch
+    rb=rebase
+    g=grep -i -n
+    git = !exec git
+    fp = push --force-with-lease
+    bc= !exec branch-cleanup
+    fixup = commit --amend --no-edit
+    hub = !exec github-open.sh
+    hub-branch = !exec github-open.sh branch
+    hub-pulls = !exec github-open.sh pulls
 [diff]
-	tool = icdiff
+    tool = icdiff
 [difftool "icdiff"]
-	cmd = icdiff $LOCAL $REMOTE
+    cmd = icdiff $LOCAL $REMOTE
 [difftool]
-	prompt = false
+    prompt = false
+[commit]
+#    gpgsign = true
+[merge]
+	conflictstyle = diff3
