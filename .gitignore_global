@@ -1,6 +1,8 @@
 *.swp
 *.un~
-*.npmrc
 *.swo
 .env
 .nvmrc
+.envrc
+.helper-bin
+*__GITIGNORE__*
