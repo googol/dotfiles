@@ -25,7 +25,11 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'fsharp/vim-fsharp'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-rhubarb'
-Plugin 'tpope/vim-fireplace'
+Plugin 'rbgrouleff/bclose.vim'
+Plugin 'fatih/vim-go'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-vinegar'
+Plugin 'tpope/vim-dadbod'
 
 call vundle#end()            " required
 
@@ -62,8 +66,7 @@ set hlsearch
 nnoremap <leader><space> :noh<cr>
 
 set list
-set listchars=tab:⇥\ ,eol:¬
-
+set listchars=tab:⇥\ ,eol:¬,nbsp:⍽
 set t_vb=
 
 nnoremap j gj
@@ -82,17 +85,23 @@ nnoremap <leader>L :lclose<cr>
 nnoremap <leader>c :copen<cr>
 nnoremap <leader>C :cclose<cr>
 
+nnoremap <leader>x :Bclose<cr>
+
 autocmd FileType typescript nnoremap <leader>r :TsuReferences<cr>
 autocmd FileType typescript nnoremap <leader>d :TsuDefinition<cr>
 autocmd FileType typescript nnoremap <leader>t : <C-u>echo tsuquyomi#hint()<CR>
 
-autocmd FileType purescript nnoremap <leader>d :PSCIDEgoToDefinition<cr>
-autocmd FileType purescript nnoremap <leader>t :PSCIDEtype<cr>
-autocmd FileType purescript nnoremap <leader>a :PSCIDEapplySuggestion<cr>
+autocmd FileType purescript nnoremap <leader>d :Pgoto<cr>
+autocmd FileType purescript nnoremap <leader>t :Ptype<cr>
+autocmd FileType purescript nnoremap <leader>a :Papply<cr>
 
 autocmd FileType xml nnoremap <leader>f :%!xmllint --format %<cr>
 
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+autocmd FileType typescriptreact set filetype=typescript
+
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard', 'ag %s -l --nocolor -g ""']
+let g:ctrlp_use_caching = 0
+set grepprg=ag\ --nogroup\ --nocolor
 
 set background=dark
 colorscheme solarized
@@ -123,3 +132,6 @@ let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_typescript_prettier_use_local_config = 1
 
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
+:command! -range=% Copy :<line1>,<line2>write! xclip -i -selection CLIPBOARD
+:command Paste :read ! xclip -o -selection CLIPBOARD
