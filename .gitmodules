@@ -1,0 +1,66 @@
+[submodule ".vim/pack/googol/start/ale"]
+	path = .vim/pack/googol/start/ale
+	url = git@github.com:w0rp/ale.git
+[submodule ".vim/pack/googol/start/rust.vim"]
+	path = .vim/pack/googol/start/rust.vim
+	url = git@github.com:rust-lang/rust.vim.git
+[submodule ".vim/pack/googol/start/editorconfig-vim"]
+	path = .vim/pack/googol/start/editorconfig-vim
+	url = git@github.com:editorconfig/editorconfig-vim.git
+[submodule ".vim/pack/googol/start/vim-javascript"]
+	path = .vim/pack/googol/start/vim-javascript
+	url = git@github.com:pangloss/vim-javascript.git
+[submodule ".vim/pack/googol/start/vim-jsx"]
+	path = .vim/pack/googol/start/vim-jsx
+	url = git@github.com:mxw/vim-jsx.git
+[submodule ".vim/pack/googol/start/vim-fugitive"]
+	path = .vim/pack/googol/start/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive.git
+[submodule ".vim/pack/googol/start/vim-surround"]
+	path = .vim/pack/googol/start/vim-surround
+	url = git@github.com:tpope/vim-surround.git
+[submodule ".vim/pack/googol/start/vim-commentary"]
+	path = .vim/pack/googol/start/vim-commentary
+	url = git@github.com:tpope/vim-commentary.git
+[submodule ".vim/pack/googol/start/html5.vim"]
+	path = .vim/pack/googol/start/html5.vim
+	url = git@github.com:othree/html5.vim.git
+[submodule ".vim/pack/googol/start/ctrlp.vim"]
+	path = .vim/pack/googol/start/ctrlp.vim
+	url = git@github.com:ctrlpvim/ctrlp.vim.git
+[submodule ".vim/pack/googol/start/vim-colors-solarized"]
+	path = .vim/pack/googol/start/vim-colors-solarized
+	url = git@github.com:altercation/vim-colors-solarized.git
+[submodule ".vim/pack/googol/start/tsuquyomi"]
+	path = .vim/pack/googol/start/tsuquyomi
+	url = git@github.com:Quramy/tsuquyomi.git
+[submodule ".vim/pack/googol/start/typescript-vim"]
+	path = .vim/pack/googol/start/typescript-vim
+	url = git@github.com:leafgarland/typescript-vim.git
+[submodule ".vim/pack/googol/start/purescript-vim"]
+	path = .vim/pack/googol/start/purescript-vim
+	url = git@github.com:purescript-contrib/purescript-vim.git
+[submodule ".vim/pack/googol/start/psc-ide-vim"]
+	path = .vim/pack/googol/start/psc-ide-vim
+	url = git@github.com:FrigoEU/psc-ide-vim.git
+[submodule ".vim/pack/googol/start/vim-eunuch"]
+	path = .vim/pack/googol/start/vim-eunuch
+	url = git@github.com:tpope/vim-eunuch.git
+[submodule ".vim/pack/googol/start/vim-rhubarb"]
+	path = .vim/pack/googol/start/vim-rhubarb
+	url = git@github.com:tpope/vim-rhubarb.git
+[submodule ".vim/pack/googol/start/bclose.vim"]
+	path = .vim/pack/googol/start/bclose.vim
+	url = git@github.com:rbgrouleff/bclose.vim.git
+[submodule ".vim/pack/googol/start/vim-go"]
+	path = .vim/pack/googol/start/vim-go
+	url = git@github.com:fatih/vim-go.git
+[submodule ".vim/pack/googol/start/vim-unimpaired"]
+	path = .vim/pack/googol/start/vim-unimpaired
+	url = git@github.com:tpope/vim-unimpaired.git
+[submodule ".vim/pack/googol/start/vim-vinegar"]
+	path = .vim/pack/googol/start/vim-vinegar
+	url = git@github.com:tpope/vim-vinegar.git
+[submodule ".vim/pack/googol/start/vim-dadbod"]
+	path = .vim/pack/googol/start/vim-dadbod
+	url = git@github.com:tpope/vim-dadbod.git
