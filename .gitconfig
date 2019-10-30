@@ -4,12 +4,15 @@
     signingkey = 7C727521C33A1E6E547F006B0ED89E238E72BE0A
 [core]
     excludesfile = ~/.gitignore_global
+    editor = vim
 [push]
     default = simple
 [alias]
-    s=status
     statsu=status
     stauts=status
+    ll = !exec git log --pretty='format: %C(auto) %h %G?%d %s' --abbrev-commit --graph --decorate --all --color | less -R -p 'HEAD ->'
+    fp = push --force-with-lease
+    fixup = commit --amend --no-edit
     ps=push
     pl=pull
     b=branch
@@ -21,19 +24,17 @@
     ddt=difftool --cached
     l=log
     a=add
-    ll=log --oneline --graph --decorate --all
     ft=fetch
     rb=rebase
     g=grep -i -n
     git = !exec git
-    fp = push --force-with-lease
     bc= !exec branch-cleanup
-    fixup = commit --amend --no-edit
     hub = !exec github-open.sh
     hub-branch = !exec github-open.sh branch
     hub-pulls = !exec github-open.sh pulls
 [diff]
     tool = icdiff
+    submodule = log
 [difftool "icdiff"]
     cmd = icdiff $LOCAL $REMOTE
 [difftool]
@@ -41,4 +42,10 @@
 [commit]
 #    gpgsign = true
 [merge]
-	conflictstyle = diff3
+    conflictstyle = diff3
+[fetch]
+    recurseSubmodules = on-demand
+[status]
+    submoduleSummary = true
+[rebase]
+    autosquash = true
