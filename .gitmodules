@@ -64,3 +64,12 @@
 [submodule ".vim/pack/googol/start/vim-dadbod"]
 	path = .vim/pack/googol/start/vim-dadbod
 	url = git@github.com:tpope/vim-dadbod.git
+[submodule ".vim/pack/googol/start/vim-elixir"]
+	path = .vim/pack/googol/start/vim-elixir
+	url = git@github.com:elixir-editors/vim-elixir.git
+[submodule ".vim/pack/googol/start/elm-vim"]
+	path = .vim/pack/googol/start/elm-vim
+	url = git@github.com:ElmCast/elm-vim.git
+[submodule ".vim/pack/googol/start/vim-heroku"]
+	path = .vim/pack/googol/start/vim-heroku
+	url = git@github.com:tpope/vim-heroku.git
