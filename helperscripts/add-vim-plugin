@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -euo pipefail
+
+GH_USER=${1:-}
+GH_REPO=${2:-}
+
+if [ -z "$GH_USER" ]; then
+    echo "First param needs to be github username"
+    exit 1
+fi
+
+if [ -z "$GH_REPO" ]; then
+    echo "Second param needs to be github repo name"
+    exit 1
+fi
+
+git submodule add "git@github.com:$GH_USER/$GH_REPO.git" ".vim/pack/googol/start/$GH_REPO"
