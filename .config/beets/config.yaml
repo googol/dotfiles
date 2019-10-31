@@ -21,7 +21,7 @@ paths:
     singleton: Non-Album/$artist/$title
     comp: Compilations/$album%aunique{}/$disc-$track $artist $title
 
-plugins: fetchart embedart ftintitle replaygain web convert random
+plugins: fetchart embedart ftintitle replaygain
 fetchart:
     auto: yes
 embedart:
@@ -29,9 +29,7 @@ embedart:
 ftintitle:
     auto: yes
 replaygain:
-    backend: gstreamer
-web:
-    host: 0.0.0.0
+    backend: bs1770gain
 convert:
     command: ffmpeg -i $source -y -vn -aq 2 $dest
     extension: mp3
