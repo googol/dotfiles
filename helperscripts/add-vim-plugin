@@ -15,4 +15,4 @@ if [ -z "$GH_REPO" ]; then
     exit 1
 fi
 
-git submodule add "git@github.com:$GH_USER/$GH_REPO.git" ".vim/pack/googol/start/$GH_REPO"
+git submodule add "https://github.com/$GH_USER/$GH_REPO.git" ".vim/pack/googol/start/$GH_REPO"
