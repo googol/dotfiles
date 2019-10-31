@@ -61,6 +61,9 @@ autocmd FileType purescript nnoremap <leader>d :Pgoto<cr>
 autocmd FileType purescript nnoremap <leader>t :Ptype<cr>
 autocmd FileType purescript nnoremap <leader>a :Papply<cr>
 
+autocmd FileType sql vnoremap <leader>e :DB $DATABASE_URL<cr>
+autocmd FileType sql nnoremap <leader>E :%DB $DATABASE_URL<cr>
+
 autocmd FileType xml nnoremap <leader>f :%!xmllint --format %<cr>
 
 autocmd FileType typescriptreact set filetype=typescript
