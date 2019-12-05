@@ -19,7 +19,7 @@ import qualified XMonad.StackSet as W
 import Graphics.X11.Xlib.Extras (Event(..))
 
 myWorkspaces = [ "1", "2", "3", "4", "5", "6", "7", "8", "9" ]
-keyMapping = [ ("M4-l", spawn "dm-tool lock")
+keyMapping = [ ("M4-l", spawn "slock")
              , ("M4-s", sendMessage Shrink)
              , ("M4-e", sendMessage Expand)
              , ("<XF86MonBrightnessUp>", spawn "sudo light -A 9")
