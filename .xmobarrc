@@ -10,9 +10,9 @@ Config { font = "xft:Fira Code:size=5",
                       Run Battery [ "--template", "<acstatus> <left>% (<timeleft>)"
                                   , "--Low", "10"
                                   , "--High", "80"
-                                  , "--low", "darkred"
-                                  , "--normal", "darkorange"
-                                  , "--high", "darkgreen"
+                                  , "--low", "#ff5d35"
+                                  , "--normal", "#ff9900"
+                                  , "--high", "#33cc33"
                                   ] 600
                     ],
          sepChar = "%",
