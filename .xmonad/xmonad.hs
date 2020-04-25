@@ -48,6 +48,7 @@ startUpScripts = do
     spawn "redshift-gtk"
     spawn "twmnd"
     spawn "caffeine"
+    spawn "autofetch"
 
 main = do
     xmproc <- spawnPipe "xmobar"
