@@ -53,6 +53,8 @@ nnoremap <leader>C :cclose<cr>
 
 nnoremap <leader>x :Bclose<cr>
 
+nnoremap <leader>r gqap
+
 autocmd FileType typescript nnoremap <leader>r :TsuReferences<cr>
 autocmd FileType typescript nnoremap <leader>d :TsuDefinition<cr>
 autocmd FileType typescript nnoremap <leader>t : <C-u>echo tsuquyomi#hint()<CR>
