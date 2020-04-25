@@ -2,7 +2,7 @@
 *.un~
 *.swo
 .env
-.nvmrc
 .envrc
 .helper-bin
 *__GITIGNORE__*
+.autofetch
