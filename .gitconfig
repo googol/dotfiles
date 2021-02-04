@@ -53,3 +53,5 @@
     submoduleSummary = true
 [rebase]
     autosquash = true
+[pull]
+	ff = only
