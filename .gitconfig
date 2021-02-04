@@ -5,6 +5,9 @@
 [core]
     excludesfile = ~/.gitignore_global
     editor = vim
+#    pager = delta --plus-color="#012800" --minus-color="#340001" --theme 'Solarized (dark)'
+[interactive]
+#    diffFilter = delta --color-only --theme 'Solarized (dark)'
 [push]
     default = simple
 [alias]
