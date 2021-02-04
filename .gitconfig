@@ -13,7 +13,7 @@
 [alias]
     statsu=status
     stauts=status
-    ll = !exec git log --pretty='format: %C(auto) %h %G?%d %s' --abbrev-commit --graph --decorate --all --color | less -R -p 'HEAD ->'
+    ll = !exec git log --pretty='format: %C(auto) %h %G?%d %s' --abbrev-commit --graph --decorate --all --color | less -R -p 'HEAD'
     fp = push --force-with-lease
     fixup = commit --amend --no-edit
     ps=push
