@@ -112,3 +112,5 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 :command! -range=% Copy :<line1>,<line2>write! xclip -i -selection CLIPBOARD
 :command Paste :read ! xclip -o -selection CLIPBOARD
+
+:command ReloadConfig :so /home/googol/.vim/vimrc
