@@ -45,7 +45,6 @@ startUpScripts = do
     spawn "unclutter -display :0.0 -idle 1 -root"
     spawn "blueman-applet"
     spawn "pasystray"
-    spawn "redshift-gtk"
     spawn "twmnd"
     spawn "caffeine"
     spawn "autofetch"
