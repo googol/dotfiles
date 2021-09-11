@@ -47,7 +47,6 @@ startUpScripts = do
     spawn "pasystray"
     spawn "twmnd"
     spawn "caffeine"
-    spawn "autofetch"
 
 main = do
     xmproc <- spawnPipe "xmobar"
