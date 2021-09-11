@@ -55,6 +55,13 @@ nnoremap <leader>x :Bclose<cr>
 
 nnoremap <leader>r gqap
 
+nmap < [
+nmap > ]
+omap < [
+omap > ]
+xmap < [
+xmap > ]
+
 vmap <leader>c :w !cat \| codify.py \| xclip -selection clipboard<cr>
 
 autocmd FileType typescript nnoremap <leader>r :TsuReferences<cr>
