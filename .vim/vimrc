@@ -114,3 +114,5 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 :command Paste :read ! xclip -o -selection CLIPBOARD
 
 :command ReloadConfig :so /home/googol/.vim/vimrc
+
+set nonumber
