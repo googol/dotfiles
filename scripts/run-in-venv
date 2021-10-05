@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -euo pipefail
+
+venv_dir="${1}"
+executable="${2}"
+rest_of_params=("${@:3}")
+
+source "$venv_dir/bin/activate"
+
+"$executable" "${rest_of_params[@]}"

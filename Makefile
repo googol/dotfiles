@@ -8,6 +8,10 @@ $(ANSIBLE_BIN): scripts/setup-venv ansible-requirements/* ansible-requirements/p
 .PHONY: setup
 setup: $(ANSIBLE_BIN)
 
+.PHONY: run-ansible
+run-ansible: $(ANSIBLE_BIN)
+	@scripts/run-in-venv "$(ANSIBLE_VENV_DIR)" ansible-playbook playbook.yml -i inventory.yml --ask-become-pass
+
 .PHONY: clean
 clean:
 	rm -rf .temp
