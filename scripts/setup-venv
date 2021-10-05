@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -euo pipefail
+
+venv_dir="${1:-}"
+
+mkdir -p "$venv_dir"
+
+python -m venv "$venv_dir"
+source "$venv_dir/bin/activate"
+
+pip install -r ansible-requirements/core_requirements.txt
+pip install -r ansible-requirements/requirements.txt
