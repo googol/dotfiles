@@ -2,6 +2,37 @@
 - name: ping
   hosts: all
   tasks:
+    - name: Create base .profile
+      copy:
+        src: '.profile'
+        dest: '/home/{{ main_username }}/.profile'
+        owner: '{{ main_username }}'
+        group: '{{ main_username }}'
+
+    - name: Create base .bashrc
+      copy:
+        src: '.bashrc'
+        dest: '/home/{{ main_username }}/.bashrc'
+        owner: '{{ main_username }}'
+        group: '{{ main_username }}'
+
+    - name: Set bash aliases
+      lineinfile:
+        path: '/home/{{ main_username }}/.bash_aliases'
+        search_string: 'alias {{ item.key }}'
+        line: "alias {{ item.key }}='{{ item.value }}'"
+        create: yes
+        owner: '{{ main_username }}'
+        group: '{{ main_username }}'
+      loop: '{{ alias_definitions | dict2items }}'
+      vars:
+        alias_definitions:
+          ni: 'npm install'
+          nr: 'npm run'
+          yr: 'yarn run'
+          tf: 'terraform'
+          tg: 'terragrunt'
+
     - name: Set global gitconfig
       community.general.git_config:
         scope: 'global'
