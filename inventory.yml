@@ -3,3 +3,4 @@ all:
     rhaegal:
       ansible_connection: '{{ (lookup("pipe","hostname") == inventory_hostname) | ternary("local", "ssh") }}'
       ansible_user: googol
+      main_username: googol
