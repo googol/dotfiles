@@ -9,14 +9,14 @@
   tasks:
     - name: Create base .profile
       copy:
-        src: '.profile'
+        src: 'files/bash/profile'
         dest: '/home/{{ main_username }}/.profile'
         owner: '{{ main_username }}'
         group: '{{ main_username }}'
 
     - name: Create base .bashrc
       copy:
-        src: '.bashrc'
+        src: 'files/bash/bashrc'
         dest: '/home/{{ main_username }}/.bashrc'
         owner: '{{ main_username }}'
         group: '{{ main_username }}'
@@ -83,7 +83,7 @@
 
     - name: Copy global gitignore
       copy:
-        src: '.gitignore_global'
+        src: 'files/git/gitignore_global'
         dest: '/home/{{ main_username }}/.gitignore_global'
         owner: '{{ main_username }}'
         group: '{{ main_username }}'
@@ -103,7 +103,7 @@
 
     - name: Copy vimrc
       copy:
-        src: '.vim/vimrc'
+        src: 'files/vim/vimrc'
         dest: '/home/{{ main_username }}/.vim/vimrc'
         owner: '{{ main_username }}'
         group: '{{ main_username }}'
@@ -208,7 +208,7 @@
 
     - name: Copy xmonad config
       copy:
-        src: '.xmonad/xmonad.hs'
+        src: 'files/xmonad/xmonad.hs'
         dest: '/home/{{ main_username }}/.xmonad/xmonad.hs'
         owner: '{{ main_username }}'
         group: '{{ main_username }}'
@@ -217,7 +217,7 @@
 
     - name: Copy xmobar config
       copy:
-        src: '.xmobarrc'
+        src: 'files/xmobar/xmobarrc'
         dest: '/home/{{ main_username }}/.xmobarrc'
         owner: '{{ main_username }}'
         group: '{{ main_username }}'
