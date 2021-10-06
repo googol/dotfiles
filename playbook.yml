@@ -214,3 +214,10 @@
         group: '{{ main_username }}'
       notify:
         - 'recompile xmonad'
+
+    - name: Copy xmobar config
+      copy:
+        src: '.xmobarrc'
+        dest: '/home/{{ main_username }}/.xmobarrc'
+        owner: '{{ main_username }}'
+        group: '{{ main_username }}'
