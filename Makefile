@@ -12,7 +12,7 @@ setup: $(ANSIBLE_BIN)
 
 .PHONY: run-ansible
 run-ansible: $(ANSIBLE_BIN)
-	@scripts/run-in-venv "$(ANSIBLE_VENV_DIR)" ansible-playbook playbook.yml -i inventory.yml --ask-become-pass
+	@scripts/run-in-venv "$(ANSIBLE_VENV_DIR)" ansible-playbook playbook.yml -i inventory.yml
 
 .PHONY: clean
 clean:
