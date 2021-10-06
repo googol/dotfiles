@@ -11,3 +11,5 @@ source "$venv_dir/bin/activate"
 
 pip install -r ansible-requirements/core_requirements.txt
 pip install -r ansible-requirements/requirements.txt
+
+ansible-galaxy install -r ansible-requirements/ansible-collection-requirements.yml

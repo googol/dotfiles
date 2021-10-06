@@ -1,6 +1,8 @@
 ANSIBLE_VENV_DIR=.temp/ansible.venv
 ANSIBLE_BIN=$(ANSIBLE_VENV_DIR)/bin/ansible
 
+ANSIBLE_CONFIG=./ansible.cfg
+
 $(ANSIBLE_BIN): scripts/setup-venv ansible-requirements/* ansible-requirements/packages/*
 	@scripts/setup-venv "$(ANSIBLE_VENV_DIR)"
 	@touch "$(ANSIBLE_BIN)"

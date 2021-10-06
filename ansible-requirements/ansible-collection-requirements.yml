@@ -1,0 +1,3 @@
+---
+collections:
+  - './ansible-requirements/collections/community-general-3.7.0.tar.gz'
