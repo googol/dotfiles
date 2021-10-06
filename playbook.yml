@@ -69,6 +69,8 @@
       copy:
         src: '.vim/vimrc'
         dest: '/home/{{ main_username }}/.vim/vimrc'
+        owner: '{{ main_username }}'
+        group: '{{ main_username }}'
 
     - name: Install vim plugins
       git:
