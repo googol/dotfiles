@@ -2,6 +2,56 @@
 - name: ping
   hosts: all
   tasks:
+    - name: Set global gitconfig
+      community.general.git_config:
+        scope: 'global'
+        name: '{{ item.name }}'
+        value: '{{ item.value }}'
+      loop:
+        - name: 'user.name'
+          value: 'Miika Hänninen'
+        - name: 'user.email'
+          value: 'miika.hanninen@reaktor.com'
+        - name: 'core.excludesfile'
+          value: '~/.gitignore_global'
+        - name: 'core.editor'
+          value: 'vim'
+        - name: 'push.default'
+          value: 'simple'
+        - name: 'alias.statsu'
+          value: 'status'
+        - name: 'alias.stauts'
+          value: 'status'
+        - name: 'alias.ll'
+          value: "!exec git log --pretty='format: %C(auto) %h %G?%d %s' --abbrev-commit --graph --decorate --all --color | less -R -p 'HEAD'"
+        - name: 'alias.fp'
+          value: 'push --force-with-lease'
+        - name: 'alias.fixup'
+          value: 'commit --amend --no-edit'
+        - name: 'alias.git'
+          value: '!exec git'
+        - name: 'diff.submodule'
+          value: 'log'
+        - name: 'commit.verbose'
+          value: 'true'
+        - name: 'merge.conflictstyle'
+          value: 'diff3'
+        - name: 'fetch.recurseSubmodules'
+          value: 'on-demand'
+        - name: 'status.submoduleSummary'
+          value: 'true'
+        - name: 'rebase.autosquash'
+          value: 'true'
+        - name: 'pull.ff'
+          value: 'only'
+
+    - name: Copy global gitignore
+      copy:
+        src: '.gitignore_global'
+        dest: '/home/{{ main_username }}/.gitignore_global'
+        owner: '{{ main_username }}'
+        group: '{{ main_username }}'
+
     - name: Create vim config dir structure
       file:
         state: directory
