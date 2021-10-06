@@ -1,6 +1,11 @@
 ---
 - name: ping
   hosts: all
+  handlers:
+    - name: 'recompile xmonad'
+      become: false
+      shell: 'xmonad --recompile'
+
   tasks:
     - name: Create base .profile
       copy:
@@ -193,3 +198,19 @@
         - name: 'vim-vinegar'
           version: '43576e84d3034bccb1216f39f51ed36d945d7b96'
           repo: 'https://github.com/tpope/vim-vinegar.git'
+
+    - name: Create xmonad config dir
+      file:
+        state: directory
+        path: '/home/{{ main_username }}/.xmonad'
+        owner: '{{ main_username }}'
+        group: '{{ main_username }}'
+
+    - name: Copy xmonad config
+      copy:
+        src: '.xmonad/xmonad.hs'
+        dest: '/home/{{ main_username }}/.xmonad/xmonad.hs'
+        owner: '{{ main_username }}'
+        group: '{{ main_username }}'
+      notify:
+        - 'recompile xmonad'
