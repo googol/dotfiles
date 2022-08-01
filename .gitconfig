@@ -1,7 +1,6 @@
 [user]
     name = Miika Hänninen
-    email = miika.hanninen@reaktor.com
-    signingkey = 7C727521C33A1E6E547F006B0ED89E238E72BE0A
+    email = miika.hanninen@relexsolutions.com
 [core]
     excludesfile = ~/.gitignore_global
     editor = vim
@@ -33,10 +32,7 @@
     hub-branch = !exec github-open.sh branch
     hub-pulls = !exec github-open.sh pulls
 [diff]
-    tool = icdiff
     submodule = log
-[difftool "icdiff"]
-    cmd = icdiff $LOCAL $REMOTE
 [difftool]
     prompt = false
 [commit]
