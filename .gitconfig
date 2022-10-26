@@ -6,6 +6,7 @@
     editor = vim
 [push]
     default = simple
+    autoSetupRemote = true
 [alias]
     statsu=status
     stauts=status
