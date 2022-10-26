@@ -40,9 +40,6 @@
 [submodule ".vim/pack/googol/start/purescript-vim"]
 	path = .vim/pack/googol/start/purescript-vim
 	url = https://github.com/purescript-contrib/purescript-vim.git
-[submodule ".vim/pack/googol/start/psc-ide-vim"]
-	path = .vim/pack/googol/start/psc-ide-vim
-	url = https://github.com/FrigoEU/psc-ide-vim.git
 [submodule ".vim/pack/googol/start/vim-eunuch"]
 	path = .vim/pack/googol/start/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch.git
