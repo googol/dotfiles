@@ -5,6 +5,7 @@ set -euo pipefail
 main() {
     local -r gh_user="${1:-}"
     local -r gh_repo="${2:-}"
+    local -r initial_main_branch="${3:-}"
 
     if [ -z "$gh_user" ]; then
         echo "First param needs to be github username"
@@ -20,6 +21,12 @@ main() {
     local -r plugin_path=".vim/pack/googol/start/$plugin_name"
 
     git submodule add --force "https://github.com/$gh_user/$gh_repo.git" "$plugin_path"
+
+    if [ -n "$initial_main_branch" ]; then
+        pushd "$plugin_path"
+        git checkout "$initial_main_branch"
+        popd
+    fi
 
     pushd "$plugin_path"
     local -r plugin_branch="$(git branch --show-current)"
