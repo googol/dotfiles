@@ -112,3 +112,4 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 set backupdir=~/.cache/vim/backup//
 set directory=~/.cache/vim/swap//
 set undodir=~/.cache/vim/undo//
+let g:netrw_home="~/.cache/vim/netrw/"
