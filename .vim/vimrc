@@ -108,3 +108,7 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 :command! -range=% Copy :<line1>,<line2>write! xclip -i -selection CLIPBOARD
 :command Paste :read ! xclip -o -selection CLIPBOARD
+
+set backupdir=~/.cache/vim/backup//
+set directory=~/.cache/vim/swap//
+set undodir=~/.cache/vim/undo//
