@@ -46,3 +46,5 @@
     submoduleSummary = true
 [rebase]
     autosquash = true
+[advice]
+    skippedCherryPicks = false
