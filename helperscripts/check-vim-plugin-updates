@@ -2,26 +2,58 @@
 
 set -euo pipefail
 
-for plugin in .vim/pack/googol/start/*
-do
-    git -C "$plugin" fetch -q origin master &
-done
+fetch_upstreams() {
+    for plugin in .vim/pack/googol/start/*
+    do
+        plugin_name="$(basename "$plugin")"
+        upstream_main="$(get_upstream_main_branch "$plugin_name")"
+        git -C "$plugin" fetch -q origin "$upstream_main" &
+    done
 
-wait 
+    wait 
+}
 
-for plugin in .vim/pack/googol/start/*
-do
-    echo
-    basename "$plugin"
-    git -C "$plugin" --no-pager log --oneline HEAD..origin/master
-done
+print_git_log_diffs() {
+    for plugin in .vim/pack/googol/start/*
+    do
+        plugin_name="$(basename "$plugin")"
+        upstream_main="$(get_upstream_main_branch "$plugin_name")"
+        echo
+        echo "$plugin_name"
+        git -C "$plugin" --no-pager log --oneline HEAD..origin/"$upstream_main"
+    done
+}
 
-for plugin in .vim/pack/googol/start/*
-do
-    plugin_name="$(basename "$plugin")"
-    short_stats="$(git -C "$plugin" --no-pager diff --shortstat HEAD..origin/master)"
-    if [ -z "$short_stats" ]; then
-        short_stats=" no updates"
+print_summaries() {
+    for plugin in .vim/pack/googol/start/*
+    do
+        plugin_name="$(basename "$plugin")"
+        upstream_main="$(get_upstream_main_branch "$plugin_name")"
+        short_stats="$(git -C "$plugin" --no-pager diff --shortstat HEAD..origin/$upstream_main)"
+        if [ -z "$short_stats" ]; then
+            short_stats=" no updates"
+        fi
+        echo "${plugin_name}:${short_stats}"
+    done
+}
+
+get_upstream_main_branch() {
+    local -r plugin_name="$1"
+    local -r repo_root="$(git rev-parse --show-toplevel)"
+    local -r plugin_master_override_file="$repo_root/helperscripts/.master_overrides/$plugin_name"
+
+
+    if [ -f "$plugin_master_override_file" ]; then
+        cat "$plugin_master_override_file"
+    else
+        echo "master"
     fi
-    echo "${plugin_name}:${short_stats}"
-done
+}
+
+main() {
+    fetch_upstreams
+    print_git_log_diffs
+    print_summaries
+}
+
+main

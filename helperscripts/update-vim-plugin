@@ -2,16 +2,33 @@
 
 set -euo pipefail
 
-PLUGIN_NAME=${1:-}
+main() {
+    local -r plugin_name="${1:-}"
+    local -r plugin_path=".vim/pack/googol/start/$plugin_name"
+    local -r plugin_main_branch="$(get_upstream_main_branch "$plugin_name")"
 
-PLUGIN_PATH=".vim/pack/googol/start/$PLUGIN_NAME"
+    if [ -z "$plugin_name" -o ! -d "$plugin_path" ]; then
+        echo "First param needs to be the name of an already installed plugin"
+        exit 1
+    fi
 
-if [ -z "$PLUGIN_NAME" -o ! -d "$PLUGIN_PATH" ]; then
-    echo "First param needs to be the name of an already installed plugin"
-    exit 1
-fi
+    cd "$plugin_path"
 
-cd "$PLUGIN_PATH"
+    git fetch -q origin "$plugin_main_branch"
+    git checkout -q "origin/$plugin_main_branch"
+}
 
-git fetch -q origin master
-git checkout -q origin/master
+get_upstream_main_branch() {
+    local -r plugin_name="$1"
+    local -r repo_root="$(git rev-parse --show-toplevel)"
+    local -r plugin_master_override_file="$repo_root/helperscripts/.master_overrides/$plugin_name"
+
+
+    if [ -f "$plugin_master_override_file" ]; then
+        cat "$plugin_master_override_file"
+    else
+        echo "master"
+    fi
+}
+
+main "$@"
