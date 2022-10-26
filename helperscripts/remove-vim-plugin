@@ -2,15 +2,19 @@
 
 set -euo pipefail
 
-PLUGIN_NAME=${1:-}
 
-PLUGIN_PATH=".vim/pack/googol/start/$PLUGIN_NAME"
+main() {
+    local -r plugin_name=${1:-}
+    local -r plugin_path=".vim/pack/googol/start/$plugin_name"
 
-if [ -z "$PLUGIN_NAME" -o ! -d "$PLUGIN_PATH" ]; then
-    echo "First param needs to be the name of an already installed plugin"
-    exit 1
-fi
+    if [ -z "$plugin_name" -o ! -d "$plugin_path" ]; then
+        echo "First param needs to be the name of an already installed plugin"
+        exit 1
+    fi
 
-git submodule deinit "$PLUGIN_PATH"
-git rm "$PLUGIN_PATH"
-rm -rf ".git/modules/$PLUGIN_PATH"
+    git submodule deinit "$plugin_path"
+    git rm "$plugin_path"
+    rm -rf ".git/modules/$plugin_path"
+}
+
+main "$@"
