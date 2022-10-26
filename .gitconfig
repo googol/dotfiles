@@ -43,6 +43,7 @@
 #    gpgsign = true
 [merge]
     conflictstyle = diff3
+    ff = false
 [fetch]
     recurseSubmodules = on-demand
 [status]
