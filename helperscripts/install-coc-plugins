@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -euo pipefail
+
+main() {
+    local -r repo_root="$(git rev-parse --show-toplevel)"
+    local -r plugins_file="$repo_root/.vim/coc-plugins"
+
+    readarray -t plugins_list < "$plugins_file"
+
+    vim -c ":CocInstall ${plugins_list[*]}"
+}
+
+main

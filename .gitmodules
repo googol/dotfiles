@@ -1,6 +1,3 @@
-[submodule ".vim/pack/googol/start/ale"]
-	path = .vim/pack/googol/start/ale
-	url = https://github.com/w0rp/ale.git
 [submodule ".vim/pack/googol/start/rust.vim"]
 	path = .vim/pack/googol/start/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
@@ -31,9 +28,6 @@
 [submodule ".vim/pack/googol/start/vim-colors-solarized"]
 	path = .vim/pack/googol/start/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
-[submodule ".vim/pack/googol/start/tsuquyomi"]
-	path = .vim/pack/googol/start/tsuquyomi
-	url = https://github.com/Quramy/tsuquyomi.git
 [submodule ".vim/pack/googol/start/typescript-vim"]
 	path = .vim/pack/googol/start/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
@@ -70,3 +64,6 @@
 [submodule ".vim/pack/googol/start/vim-terraform"]
 	path = .vim/pack/googol/start/vim-terraform
 	url = https://github.com/hashivim/vim-terraform.git
+[submodule ".vim/pack/googol/start/coc.nvim"]
+	path = .vim/pack/googol/start/coc.nvim
+	url = https://github.com/neoclide/coc.nvim.git
