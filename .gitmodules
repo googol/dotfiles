@@ -67,3 +67,6 @@
 [submodule ".vim/pack/googol/start/coc.nvim"]
 	path = .vim/pack/googol/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim.git
+[submodule ".vim/pack/googol/start/fugitive-gitlab.vim"]
+	path = .vim/pack/googol/start/fugitive-gitlab.vim
+	url = https://github.com/shumphrey/fugitive-gitlab.vim.git
