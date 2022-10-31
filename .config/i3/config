@@ -58,7 +58,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c kill
 
 # start rofi for launching programs and switching windows
-bindsym $mod+p exec --no-startup-id "rofi -modes combi -combi-modes 'window,drun,run' -show combi"
+bindsym $mod+p exec --no-startup-id "rofi -modes 'combi,power-menu:rofi-power-menu --choices lockscreen/logout/reboot/shutdown --no-symbols' -combi-modes 'window,drun,power-menu,run' -show combi"
 
 # start wmfocus for nice switching between windows
 bindsym $mod+Shift+p exec --no-startup-id wmfocus
