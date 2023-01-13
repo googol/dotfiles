@@ -75,7 +75,7 @@ autocmd FileType xml nnoremap <leader>f :%!xmllint --format %<cr>
 
 autocmd FileType typescriptreact set filetype=typescript
 
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard', 'ag %s -l --nocolor -g ""']
+let g:ctrlp_user_command = ['.git', 'git --git-dir=%s/.git ls-files -oc --exclude-standard', 'ag %s -l --nocolor -g ""']
 let g:ctrlp_use_caching = 0
 set grepprg=ag\ --nogroup\ --nocolor
 
