@@ -234,4 +234,5 @@ bindsym $mod+shift+s mode "$mode_screen"
 # finds out, if available)
 bar {
         status_command i3status
+        tray_output primary
 }
