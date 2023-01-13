@@ -52,3 +52,5 @@
     autosquash = true
 [advice]
     skippedCherryPicks = false
+[init]
+	defaultBranch = master
