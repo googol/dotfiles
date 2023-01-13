@@ -30,6 +30,9 @@ exec --no-startup-id dex --autostart --environment i3
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --ignore-empty-password --color=000000 --nofork
 
+# Unclutter hides the cursor when it isn't in use
+exec --no-startup-id unclutter
+
 bindsym $mod+Ctrl+l exec --no-startup-id "loginctl lock-session"
 
 bindsym $mod+m scratchpad show
