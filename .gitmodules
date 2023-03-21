@@ -70,3 +70,9 @@
 [submodule ".vim/pack/googol/start/fugitive-gitlab.vim"]
 	path = .vim/pack/googol/start/fugitive-gitlab.vim
 	url = https://github.com/shumphrey/fugitive-gitlab.vim.git
+[submodule ".vim/pack/googol/start/fzf"]
+	path = .vim/pack/googol/start/fzf
+	url = https://github.com/junegunn/fzf.git
+[submodule ".vim/pack/googol/start/fzf.vim"]
+	path = .vim/pack/googol/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
