@@ -4,6 +4,7 @@
 [core]
     excludesfile = ~/.gitignore_global
     editor = vim
+    pager = delta
 [push]
     default = simple
     autoSetupRemote = true
@@ -36,6 +37,7 @@
     hub-pulls = !exec github-open.sh pulls
 [diff]
     submodule = log
+    colorMoved = default
 [difftool]
     prompt = false
 [commit]
@@ -53,4 +55,6 @@
 [advice]
     skippedCherryPicks = false
 [init]
-	defaultBranch = master
+    defaultBranch = master
+[interactive]
+    diffFilter = delta --color-only
