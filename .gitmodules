@@ -79,3 +79,6 @@
 [submodule ".vim/pack/googol/start/json5.vim"]
 	path = .vim/pack/googol/start/json5.vim
 	url = https://github.com/guteneye/json5.vim.git
+[submodule ".vim/pack/googol/start/vim-tsx"]
+	path = .vim/pack/googol/start/vim-tsx
+	url = https://github.com/ianks/vim-tsx.git
