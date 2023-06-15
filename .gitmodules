@@ -76,3 +76,6 @@
 [submodule ".vim/pack/googol/start/fzf.vim"]
 	path = .vim/pack/googol/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
+[submodule ".vim/pack/googol/start/json5.vim"]
+	path = .vim/pack/googol/start/json5.vim
+	url = https://github.com/guteneye/json5.vim.git
