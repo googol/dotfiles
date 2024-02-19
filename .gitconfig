@@ -1,6 +1,6 @@
 [user]
     name = Miika Hänninen
-    email = miika.hanninen@relexsolutions.com
+    email = miika@miikahanninen.com
 [core]
     excludesfile = ~/.gitignore_global
     editor = vim
@@ -36,6 +36,7 @@
     hub-branch = !exec github-open.sh branch
     hub-pulls = !exec github-open.sh pulls
 [diff]
+    algorithm = histogram
     submodule = log
     colorMoved = default
 [difftool]
@@ -44,8 +45,10 @@
 	verbose = true
 #    gpgsign = true
 [merge]
-    conflictstyle = diff3
+    conflictstyle = zdiff3
     ff = false
+[branch]
+    sort = -commiterdate
 [fetch]
     recurseSubmodules = on-demand
 [status]
@@ -55,6 +58,12 @@
 [advice]
     skippedCherryPicks = false
 [init]
-    defaultBranch = master
+	defaultBranch = main
+[log]
+    date = iso
 [interactive]
     diffFilter = delta --color-only
+[includeIf "gitdir:~/src/relex/"]
+    path = ~/.gitconfig.relex
+[includeIf "gitdir:~/src/github.com/partio-scout/"]
+    path = ~/.gitconfig.partio
