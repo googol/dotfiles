@@ -48,7 +48,7 @@
     conflictstyle = zdiff3
     ff = false
 [branch]
-    sort = -commiterdate
+    sort = -committerdate
 [fetch]
     recurseSubmodules = on-demand
 [status]
