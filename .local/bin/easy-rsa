@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+main() {
+    local -r easy_rsa_data_directory="${1:-}"
+
+    local -r image_name="registry.gitlab.com/googol_r/easy-rsa"
+
+    if ! [ -d "${easy_rsa_data_directory}" ]; then
+        log_fail "Directory ${easy_rsa_data_directory} doesn't exist, please create it first" 
+    fi
+
+    docker pull "${image_name}" &> /dev/null &
+
+    docker run --rm -it -v "${easy_rsa_data_directory}:/opt/easy-rsa/data" --user "$(id --user):$(id --group)" "${image_name}" "${@:2}"
+
+    wait
+}
+
+log() {
+    local -r log_message="${1}"
+
+    >&2 echo "${log_message}"
+}
+
+log_fail() {
+    local -r log_message="${1}"
+    local -r exit_code="${2:-1}"
+
+    log "${log_message}"
+
+    exit "${exit_code}"
+}
+
+main "$@"

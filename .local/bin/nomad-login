@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+NOMAD_ADDRESS="${NOMAD_ADDR:-http://127.0.0.1:4646}"
+SANITIZED_NOMAD_ADDRESS="${NOMAD_ADDR//[\/:]/_}"
+
+NOMAD_TOKEN_DIR="${XDG_CACHE_HOME:-"$HOME/.cache"}/nomad-token"
+
+NOMAD_TOKEN_FILE="${NOMAD_TOKEN_DIR}/${SANITIZED_NOMAD_ADDRESS}"
+
+mkdir -p "$NOMAD_TOKEN_DIR"
+
+if [[ -f "$NOMAD_TOKEN_FILE" ]]; then
+    export NOMAD_TOKEN="$(cat "$NOMAD_TOKEN_FILE")"
+    if nomad acl token self &> /dev/null; then
+        echo "Using cached token"
+        exit 0
+    else
+        echo "Cached token is invalid"
+        rm -rf "$NOMAD_TOKEN_FILE"
+    fi
+fi
+
+echo "Logging in via oidc"
+
+nomad login -json | jq -r '.SecretID' > "$NOMAD_TOKEN_FILE"

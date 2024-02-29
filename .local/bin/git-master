@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -euo pipefail
+
+git checkout master
+git pull --rebase
+git bc master
