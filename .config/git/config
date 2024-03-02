@@ -2,7 +2,7 @@
     name = Miika Hänninen
     email = miika@miikahanninen.com
 [core]
-    excludesfile = ~/.gitignore_global
+    # excludesfile = ~/.gitignore_global
     editor = vim
     pager = delta
 [push]
@@ -42,7 +42,7 @@
 [difftool]
     prompt = false
 [commit]
-	verbose = true
+    verbose = true
 #    gpgsign = true
 [merge]
     conflictstyle = zdiff3
@@ -58,12 +58,14 @@
 [advice]
     skippedCherryPicks = false
 [init]
-	defaultBranch = main
+    defaultBranch = main
 [log]
     date = iso
 [interactive]
     diffFilter = delta --color-only
 [includeIf "gitdir:~/src/relex/"]
-    path = ~/.gitconfig.relex
+    path = ~/.config/git/relex.config
 [includeIf "gitdir:~/src/github.com/partio-scout/"]
-    path = ~/.gitconfig.partio
+    path = ~/.config/git/partio.config
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
