@@ -25,9 +25,6 @@
 [submodule ".vim/pack/googol/start/ctrlp.vim"]
 	path = .vim/pack/googol/start/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
-[submodule ".vim/pack/googol/start/vim-colors-solarized"]
-	path = .vim/pack/googol/start/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule ".vim/pack/googol/start/typescript-vim"]
 	path = .vim/pack/googol/start/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
@@ -76,9 +73,9 @@
 [submodule ".vim/pack/googol/start/fzf.vim"]
 	path = .vim/pack/googol/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
-[submodule ".vim/pack/googol/start/json5.vim"]
-	path = .vim/pack/googol/start/json5.vim
-	url = https://github.com/guteneye/json5.vim.git
 [submodule ".vim/pack/googol/start/vim-tsx"]
 	path = .vim/pack/googol/start/vim-tsx
 	url = https://github.com/ianks/vim-tsx.git
+[submodule ".vim/pack/googol/start/vim-solarized8"]
+	path = .vim/pack/googol/start/vim-solarized8
+	url = https://github.com/lifepillar/vim-solarized8.git
