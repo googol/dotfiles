@@ -79,3 +79,6 @@
 [submodule ".vim/pack/googol/start/vim-solarized8"]
 	path = .vim/pack/googol/start/vim-solarized8
 	url = https://github.com/lifepillar/vim-solarized8.git
+[submodule ".vim/pack/googol/start/vim-beancount"]
+	path = .vim/pack/googol/start/vim-beancount
+	url = https://github.com/nathangrigg/vim-beancount.git
