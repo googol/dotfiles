@@ -6,7 +6,7 @@ set signcolumn=yes
 set updatetime=300
 
 set tabstop=4
-set shiftwidth=4
+set shiftwidth=2
 set expandtab
 set smarttab
 set modelines=0
@@ -79,6 +79,7 @@ let g:ctrlp_user_command = ['.git', 'git --git-dir=%s/.git ls-files -oc --exclud
 let g:ctrlp_use_caching = 0
 set grepprg=ag\ --nogroup\ --nocolor
 
+set termguicolors
 set background=dark
 colorscheme solarized8
 
