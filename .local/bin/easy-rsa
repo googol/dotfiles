@@ -3,15 +3,18 @@
 set -euo pipefail
 
 main() {
+    local -r image_name="registry.gitlab.com/googol_r/easy-rsa"
+    docker pull "${image_name}" &> /dev/null &
+
     local -r easy_rsa_data_directory="${1:-}"
 
-    local -r image_name="registry.gitlab.com/googol_r/easy-rsa"
-
+    if [ -z "${easy_rsa_data_directory}" ]; then
+      log_fail "Specify the data directory to use as the first parameter"
+    fi
     if ! [ -d "${easy_rsa_data_directory}" ]; then
         log_fail "Directory ${easy_rsa_data_directory} doesn't exist, please create it first" 
     fi
 
-    docker pull "${image_name}" &> /dev/null &
 
     docker run --rm -it -v "${easy_rsa_data_directory}:/opt/easy-rsa/data" --user "$(id --user):$(id --group)" "${image_name}" "${@:2}"
 
