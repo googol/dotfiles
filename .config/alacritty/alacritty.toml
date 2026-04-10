@@ -27,22 +27,22 @@ background = "#002b36"
 foreground = "#839496"
 
 [font]
-size = 7
+size = 11
 
 [font.bold]
-family = "monospace"
+family = "Fira Code"
 style = "Bold"
 
 [font.bold_italic]
-family = "monospace"
+family = "Fira Code"
 style = "Bold Italic"
 
 [font.italic]
-family = "monospace"
+family = "Fira Code"
 style = "Italic"
 
 [font.normal]
-family = "monospace"
+family = "Fira Code"
 style = "Regular"
 
 [[keyboard.bindings]]
