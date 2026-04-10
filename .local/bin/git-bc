@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-MAIN_BRANCH="${1:-master}"
+MAIN_BRANCH="$(git detect-main-branch)"
 
 git remote prune origin || true
 git branch --merged "${MAIN_BRANCH}" | sed 's/^..//' | grep -v "${MAIN_BRANCH}" | xargs -r git branch -d || true
