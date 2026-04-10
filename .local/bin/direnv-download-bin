@@ -19,13 +19,19 @@ main() {
         "terraform")
             download_terraform "$@"
             ;;
+        "packer")
+            download_packer "$@"
+            ;;
+        "go")
+            download_go "$@"
+            ;;
         *)
             log_fail "Unknown binary ${bin}"
             ;;
     esac
     popd > /dev/null
 
-    direnv reload
+    direnv reload || true
 }
 
 download_node() {
@@ -116,7 +122,7 @@ download_terraform() {
     local -r signature_url="${base_url}/${signature_file}"
     local -r bin_archive_url="${base_url}/${bin_archive}"
 
-    receive_terraform_authorized_keys
+    receive_hashicorp_authorized_keys
 
     wget "${shasum_url}" &> /dev/null || log_fail "Failed to download the shasum file"
     wget "${signature_url}" &> /dev/null || log_fail "Failed to download the signature file"
@@ -130,23 +136,147 @@ download_terraform() {
     log "Move files"
     unzip "${bin_archive}" &> /dev/null || log_fail "Failed to unzip the archive"
     mkdir "${bin_directory}"
-    cp "terraform" "${bin_directory}/" &> /dev/null || log_failed "Failed to copy the binary to the target directory"
+    cp "terraform" "${bin_directory}/" &> /dev/null || log_fail "Failed to copy the binary to the target directory"
     chmod +x "${bin_directory}/terraform"
     log "..done"
 }
 
+download_packer() {
+    local -r packer_versions_dir="${PACKER_VERSIONS}"
+    local version="${1:-}"
+
+    if [[ -z "$packer_versions_dir" ]]; then
+        log_fail "Specify the PACKER_VERSIONS env variable pointing to the directory where the packer versions will be stored"
+    fi
+
+    if [[ ! -d "$packer_versions_dir" ]]; then
+        log_fail "The specified PACKER_VERSIONS env variable ($packer_versions_dir) doesn't point to a directory"
+    fi
+
+    if [[ -z "$version" ]]; then
+        if [[ -f "$ORIGINAL_DIR/.packer-version" ]]; then
+            version="$(cat "$ORIGINAL_DIR/.packer-version")"
+        else
+            log_fail "Specify the version to download"
+        fi
+    fi
+
+    local -r bin_directory="${packer_versions_dir}/${version}"
+
+    if [[ -d "${bin_directory}" ]]; then
+        log_fail "The requested version has already been downloaded"
+    fi
+
+    local -r base_url="https://releases.hashicorp.com/packer/${version}"
+    local -r shasum_file="packer_${version}_SHA256SUMS"
+    local -r signature_file="${shasum_file}.sig"
+
+    local -r archive_extension="zip"
+    local -r bin_archive="packer_${version}_linux_amd64.${archive_extension}"
+
+    local -r shasum_url="${base_url}/${shasum_file}"
+    local -r signature_url="${base_url}/${signature_file}"
+    local -r bin_archive_url="${base_url}/${bin_archive}"
+
+    receive_hashicorp_authorized_keys
+
+    wget "${shasum_url}" &> /dev/null || log_fail "Failed to download the shasum file"
+    wget "${signature_url}" &> /dev/null || log_fail "Failed to download the signature file"
+    verify_shasum_file_signature "${shasum_file}" "${signature_file}"
+
+    log "Downloading file"
+    wget "${bin_archive_url}" &> /dev/null || log_fail "Failed to download the binary archive"
+    log "..done"
+    verify_shasum "${shasum_file}"
+
+    log "Move files"
+    unzip "${bin_archive}" &> /dev/null || log_fail "Failed to unzip the archive"
+    mkdir "${bin_directory}"
+    cp "packer" "${bin_directory}/" &> /dev/null || log_fail "Failed to copy the binary to the target directory"
+    chmod +x "${bin_directory}/packer"
+    log "..done"
+}
+
+download_go() {
+    local -r go_versions_dir="${GO_VERSIONS}"
+    local version_input="${1:-}"
+
+    if [[ -z "$go_versions_dir" ]]; then
+        log_fail "Specify the GO_VERSIONS env variable pointing to the directory where the go versions will be stored"
+    fi
+
+    if [[ ! -d "$go_versions_dir" ]]; then
+        log_fail "The specified GO_VERSIONS env variable ($go_versions_dir) doesn't point to a directory"
+    fi
+
+    wget "https://go.dev/dl/?mode=json&include=all" -O "versions.json" &> /dev/null || log_fail "Failed to download the versions metadata file"
+
+    local -r search_string="$(normalize_go_version_search_string $version_input)"
+
+    local -r version="$(jq --arg search_string "$search_string" '[.[] | select(.version | startswith($search_string)) | .version] | sort_by(ltrimstr("go") | split(".") | map(tonumber)) | reverse | .[0]' -r versions.json)"
+
+    if [[ -z "$version" ]]; then
+        log_fail "Specify the version to download"
+    fi
+
+    local -r bin_directory="${go_versions_dir}/${version#go}"
+
+    if [[ -d "${bin_directory}" ]]; then
+        log_fail "The requested version ${version} has already been downloaded"
+    fi
+
+    local -r version_object="$(jq --arg version "$version" '[.[] | select(.version == $version) | .files.[] | select(.os == "linux") | select(.arch == "amd64")] | .[0]' versions.json)"
+
+    local -r filename="$(echo "$version_object" | jq -r '.filename')"
+    local -r shasum="$(echo "$version_object" | jq -r '.sha256')"
+    local -r url="https://go.dev/dl/${filename}"
+
+    log "Downloading version $version"
+
+    wget "$url" -O "$filename" &> /dev/null || log_fail "Failed to download the archive"
+
+    log "Checking shasum of received file"
+    echo "${shasum}  ${filename}" | sha256sum --check &> /dev/null || log_fail ".. Checksum doesn't match file"
+    log "..done"
+
+    tar xvzf "$filename" &> /dev/null || log_fail "Failed to uncompress the archive"
+
+    mv "go" "$bin_directory"
+}
+
+normalize_go_version_search_string() {
+  local -r input="$1"
+
+  # Check for full semantic version (e.g., 1.24.4)
+  if [[ "$input" =~ ^[0-9]+\.[0-9]+\.[0-9]*$ ]]; then
+    echo "go${input}"
+  # Check for version ending in .x (e.g., 1.24.x)
+  elif [[ "$input" =~ ^[0-9]+\.[0-9]+\.x$ ]]; then
+    echo "go${input%.x}."
+  # Check for version like 1.24 (no patch part)
+  elif [[ "$input" =~ ^[0-9]+\.[0-9]+$ ]]; then
+    echo "go${input}."
+  else
+    echo "Invalid version format" >&2
+    return 1
+  fi
+}
+
+
 receive_node_authorized_keys() {
     local -r keys=(
-        "4ED778F539E3634C779C87C6D7062848A1AB005C"
-        "141F07595B7B3FFE74309A937405533BE57C7D57"
-        "74F12602B6F1C4E913FAA37AD3A89613643B6201"
-        "DD792F5973C6DE52C432CBDAC77ABFA00DDBF2B7"
-        "8FCCA13FEF1D0C2E91008E09770F7A9A5AE15600"
-        "C4F0DFFF4E8C1A8236409D08E73BC641CC11F4C8"
-        "890C08DB8579162FEE0DF9DB8BEAB4DFCF555EF4"
-        "C82FA3AE1CBEDC6BE46B9360C43CEC45C17AB93C"
         "108F52B48DB57BB0CC439B2997B01419BD92F80A"
+        "141F07595B7B3FFE74309A937405533BE57C7D57"
+        "4ED778F539E3634C779C87C6D7062848A1AB005C"
+        "74F12602B6F1C4E913FAA37AD3A89613643B6201"
+        "890C08DB8579162FEE0DF9DB8BEAB4DFCF555EF4"
+        "8FCCA13FEF1D0C2E91008E09770F7A9A5AE15600"
         "A363A499291CBBC940DD62E41F10027AF002F8B0"
+        "C0D6248439F1D5604AAFFB4021D900FFDB233756"
+        "C4F0DFFF4E8C1A8236409D08E73BC641CC11F4C8"
+        "C82FA3AE1CBEDC6BE46B9360C43CEC45C17AB93C"
+        "CC68F5A3106FF448322E48ED27F5E38D5B0A215F"
+        "DD792F5973C6DE52C432CBDAC77ABFA00DDBF2B7"
     )
 
     log "Fetching gpg keys for node release verification"
@@ -154,12 +284,12 @@ receive_node_authorized_keys() {
     log ".. done"
 }
 
-receive_terraform_authorized_keys() {
+receive_hashicorp_authorized_keys() {
     local -r keys=(
         "C874011F0AB405110D02105534365D9472D7468F"
     )
 
-    log "Fetching gpg keys for teraform release verification"
+    log "Fetching gpg keys for hashicorp release verification"
     gpg --keyserver "hkps://keys.openpgp.org" --recv-keys "${keys[@]}" &> /dev/null || log_fail ".. Unable to receive all hashicorp pgp keys"
     log ".. done"
 }
