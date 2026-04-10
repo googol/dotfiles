@@ -6,3 +6,6 @@
 .helper-bin
 *__GITIGNORE__*
 .autofetch
+.aider.*
+
+**/.claude/settings.local.json

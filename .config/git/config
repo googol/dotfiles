@@ -9,6 +9,7 @@
     default = simple
     autoSetupRemote = true
 [pull]
+    ff = only
     twohead = ort
 [alias]
     statsu=status
@@ -38,7 +39,11 @@
 [diff]
     algorithm = histogram
     submodule = log
-    colorMoved = default
+    colorMoved = plain
+    mnemonicPrefix = true
+    renames = true
+[column]
+    ui = auto
 [difftool]
     prompt = false
 [commit]
@@ -49,12 +54,18 @@
     ff = false
 [branch]
     sort = -committerdate
+[tag]
+    sort = version:refname
 [fetch]
     recurseSubmodules = on-demand
+    prune = true
+    pruneTags = true
+    all = true
 [status]
     submoduleSummary = true
 [rebase]
-    autosquash = true
+    autoSquash = true
+    updateRefs = true
 [advice]
     skippedCherryPicks = false
 [init]
@@ -63,9 +74,15 @@
     date = iso
 [interactive]
     diffFilter = delta --color-only
+[help]
+    autocorrect = prompt
 [includeIf "gitdir:~/src/relex/"]
     path = ~/.config/git/relex.config
 [includeIf "gitdir:~/src/github.com/partio-scout/"]
     path = ~/.config/git/partio.config
+[includeIf "gitdir:~/src/starcart/"]
+    path = ~/.config/git/starcart.config
+[includeIf "gitdir:~/src/sok/"]
+    path = ~/.config/git/sok.config
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
