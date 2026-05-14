@@ -1,0 +1,69 @@
+Host github.com
+    ControlMaster auto
+    ControlPath ~/.ssh/github.sock
+    ControlPersist 10s
+    ServerAliveInterval 0
+    # IdentityFile ~/.ssh/gitlab-halla-id_ed25519
+    # IdentityFile ~/.ssh/id_ecdsa_sk_yubikey_c
+    # IdentityFile ~/.ssh/id_ecdsa_sk_yubikey_a
+
+Host gitlab.com
+    ControlMaster auto
+    ControlPath ~/.ssh/gitlab.sock
+    ControlPersist 10s
+    ServerAliveInterval 0
+    # IdentityFile ~/.ssh/gitlab-halla-id_ed25519
+    # IdentityFile ~/.ssh/id_ecdsa_sk_yubikey_c
+    # IdentityFile ~/.ssh/id_ecdsa_sk_yubikey_a
+
+Host drogon
+    HostName 10.42.0.70
+    User root
+
+Host drogon.hanninen.me
+    User root
+    Hostname 10.42.0.70
+
+Host raspi
+    HostName 10.42.0.75
+    User googol
+    ProxyJump drogon
+    IdentityFile ~/.ssh/gitlab-halla-id_ed25519
+
+Host vault.hanninen.me
+    Hostname 10.42.0.75
+    User googol
+
+Host nomad.hanninen.me
+    Hostname 10.42.0.75
+    User googol
+
+Host raspi-3.hanninen.me
+    Hostname 10.42.0.75
+    User googol
+
+Host *.halla.lan
+    ForwardAgent yes
+    IdentityFile ~/.ssh/gitlab-halla-id_ed25519
+
+Host test.halla.lan
+    Hostname 172.20.3.129
+    ForwardAgent yes
+    IdentityFile ~/.ssh/gitlab-halla-id_ed25519
+
+Host kvm.hanninen.me
+    User root
+    IdentityFile ~/.ssh/gitlab-halla-id_ed25519
+
+Host scraper*
+    User debian
+
+Host proxy*
+    User debian
+
+# SSH over Session Manager
+Host i-* mi-*
+    ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"
+    ControlMaster auto
+    ControlPath ~/.ssh/socket-%r@%h-%p
+
