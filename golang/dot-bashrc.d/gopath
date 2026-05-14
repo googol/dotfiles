@@ -1,0 +1,5 @@
+export GOPATH="${XDG_STATE_HOME:-$HOME/.local/state}/go"
+
+export PATH="$PATH:/$GOPATH/bin"
+
+export GOPRIVATE="gitlab.sok.fi/*"
