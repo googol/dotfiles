@@ -68,3 +68,4 @@ use_go() {
 
   log_status "Successfully loaded Go $(go version), from prefix ($go_prefix)"
 }
+

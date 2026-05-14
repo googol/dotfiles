@@ -1,0 +1,1 @@
+export TERRAGRUNT_VERSIONS="$HOME/.cache/direnv/terragrunt-versions"
