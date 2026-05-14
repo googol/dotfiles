@@ -1,0 +1,6 @@
+[Unit]
+Description=Check whether firmware updates are available
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/check_fwupd_status.sh
