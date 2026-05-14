@@ -1,9 +1,0 @@
-[Unit]
-Description=Check whether firmware updates are available
-
-[Timer]
-OnStartupSec=5min
-OnUnitActiveSec=1h
-
-[Install]
-WantedBy=timers.target
