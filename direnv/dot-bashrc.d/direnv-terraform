@@ -1,0 +1,1 @@
+export TERRAFORM_VERSIONS="$HOME/.cache/direnv/terraform-versions"

@@ -1,84 +1,84 @@
-[submodule ".vim/pack/googol/start/rust.vim"]
-	path = .vim/pack/googol/start/rust.vim
+[submodule "rust.vim"]
+	path = vim/dot-config/vim/pack/googol/start/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
-[submodule ".vim/pack/googol/start/editorconfig-vim"]
-	path = .vim/pack/googol/start/editorconfig-vim
+[submodule "editorconfig-vim"]
+	path = vim/dot-config/vim/pack/googol/start/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim.git
-[submodule ".vim/pack/googol/start/vim-javascript"]
-	path = .vim/pack/googol/start/vim-javascript
+[submodule "vim-javascript"]
+	path = vim/dot-config/vim/pack/googol/start/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
-[submodule ".vim/pack/googol/start/vim-jsx"]
-	path = .vim/pack/googol/start/vim-jsx
+[submodule "vim-jsx"]
+	path = vim/dot-config/vim/pack/googol/start/vim-jsx
 	url = https://github.com/mxw/vim-jsx.git
-[submodule ".vim/pack/googol/start/vim-fugitive"]
-	path = .vim/pack/googol/start/vim-fugitive
+[submodule "vim-fugitive"]
+	path = vim/dot-config/vim/pack/googol/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule ".vim/pack/googol/start/vim-surround"]
-	path = .vim/pack/googol/start/vim-surround
+[submodule "vim-surround"]
+	path = vim/dot-config/vim/pack/googol/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule ".vim/pack/googol/start/vim-commentary"]
-	path = .vim/pack/googol/start/vim-commentary
+[submodule "vim-commentary"]
+	path = vim/dot-config/vim/pack/googol/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule ".vim/pack/googol/start/html5.vim"]
-	path = .vim/pack/googol/start/html5.vim
+[submodule "html5.vim"]
+	path = vim/dot-config/vim/pack/googol/start/html5.vim
 	url = https://github.com/othree/html5.vim.git
-[submodule ".vim/pack/googol/start/ctrlp.vim"]
-	path = .vim/pack/googol/start/ctrlp.vim
+[submodule "ctrlp.vim"]
+	path = vim/dot-config/vim/pack/googol/start/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
-[submodule ".vim/pack/googol/start/typescript-vim"]
-	path = .vim/pack/googol/start/typescript-vim
+[submodule "typescript-vim"]
+	path = vim/dot-config/vim/pack/googol/start/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
-[submodule ".vim/pack/googol/start/purescript-vim"]
-	path = .vim/pack/googol/start/purescript-vim
+[submodule "purescript-vim"]
+	path = vim/dot-config/vim/pack/googol/start/purescript-vim
 	url = https://github.com/purescript-contrib/purescript-vim.git
-[submodule ".vim/pack/googol/start/vim-eunuch"]
-	path = .vim/pack/googol/start/vim-eunuch
+[submodule "vim-eunuch"]
+	path = vim/dot-config/vim/pack/googol/start/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch.git
-[submodule ".vim/pack/googol/start/bclose.vim"]
-	path = .vim/pack/googol/start/bclose.vim
+[submodule "bclose.vim"]
+	path = vim/dot-config/vim/pack/googol/start/bclose.vim
 	url = https://github.com/rbgrouleff/bclose.vim.git
-[submodule ".vim/pack/googol/start/vim-go"]
-	path = .vim/pack/googol/start/vim-go
+[submodule "vim-go"]
+	path = vim/dot-config/vim/pack/googol/start/vim-go
 	url = https://github.com/fatih/vim-go.git
-[submodule ".vim/pack/googol/start/vim-unimpaired"]
-	path = .vim/pack/googol/start/vim-unimpaired
+[submodule "vim-unimpaired"]
+	path = vim/dot-config/vim/pack/googol/start/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
-[submodule ".vim/pack/googol/start/vim-vinegar"]
-	path = .vim/pack/googol/start/vim-vinegar
+[submodule "vim-vinegar"]
+	path = vim/dot-config/vim/pack/googol/start/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar.git
-[submodule ".vim/pack/googol/start/vim-dadbod"]
-	path = .vim/pack/googol/start/vim-dadbod
+[submodule "vim-dadbod"]
+	path = vim/dot-config/vim/pack/googol/start/vim-dadbod
 	url = https://github.com/tpope/vim-dadbod.git
-[submodule ".vim/pack/googol/start/vim-elixir"]
-	path = .vim/pack/googol/start/vim-elixir
+[submodule "vim-elixir"]
+	path = vim/dot-config/vim/pack/googol/start/vim-elixir
 	url = https://github.com/elixir-editors/vim-elixir.git
-[submodule ".vim/pack/googol/start/vim-base64"]
-	path = .vim/pack/googol/start/vim-base64
+[submodule "vim-base64"]
+	path = vim/dot-config/vim/pack/googol/start/vim-base64
 	url = https://github.com/christianrondeau/vim-base64.git
-[submodule ".vim/pack/googol/start/vim-toml"]
-	path = .vim/pack/googol/start/vim-toml
+[submodule "vim-toml"]
+	path = vim/dot-config/vim/pack/googol/start/vim-toml
 	url = https://github.com/cespare/vim-toml.git
-[submodule ".vim/pack/googol/start/vim-terraform"]
-	path = .vim/pack/googol/start/vim-terraform
+[submodule "vim-terraform"]
+	path = vim/dot-config/vim/pack/googol/start/vim-terraform
 	url = https://github.com/hashivim/vim-terraform.git
-[submodule ".vim/pack/googol/start/coc.nvim"]
-	path = .vim/pack/googol/start/coc.nvim
+[submodule "coc.nvim"]
+	path = vim/dot-config/vim/pack/googol/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim.git
-[submodule ".vim/pack/googol/start/fugitive-gitlab.vim"]
-	path = .vim/pack/googol/start/fugitive-gitlab.vim
+[submodule "fugitive-gitlab.vim"]
+	path = vim/dot-config/vim/pack/googol/start/fugitive-gitlab.vim
 	url = https://github.com/shumphrey/fugitive-gitlab.vim.git
-[submodule ".vim/pack/googol/start/fzf"]
-	path = .vim/pack/googol/start/fzf
+[submodule "fzf"]
+	path = vim/dot-config/vim/pack/googol/start/fzf
 	url = https://github.com/junegunn/fzf.git
-[submodule ".vim/pack/googol/start/fzf.vim"]
-	path = .vim/pack/googol/start/fzf.vim
+[submodule "fzf.vim"]
+	path = vim/dot-config/vim/pack/googol/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
-[submodule ".vim/pack/googol/start/vim-tsx"]
-	path = .vim/pack/googol/start/vim-tsx
+[submodule "vim-tsx"]
+	path = vim/dot-config/vim/pack/googol/start/vim-tsx
 	url = https://github.com/ianks/vim-tsx.git
-[submodule ".vim/pack/googol/start/vim-solarized8"]
-	path = .vim/pack/googol/start/vim-solarized8
+[submodule "vim-solarized8"]
+	path = vim/dot-config/vim/pack/googol/start/vim-solarized8
 	url = https://github.com/lifepillar/vim-solarized8.git
-[submodule ".vim/pack/googol/start/vim-beancount"]
-	path = .vim/pack/googol/start/vim-beancount
+[submodule "vim-beancount"]
+	path = vim/dot-config/vim/pack/googol/start/vim-beancount
 	url = https://github.com/nathangrigg/vim-beancount.git

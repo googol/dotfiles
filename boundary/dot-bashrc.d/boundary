@@ -1,0 +1,3 @@
+export BOUNDARY_KEYRING_TYPE="secret-service"
+
+complete -C /usr/bin/boundary boundary
